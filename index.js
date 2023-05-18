@@ -13,6 +13,8 @@ newGridButton.addEventListener('click', () => {
   }
 })
 
+clearButton.addEventListener('click', resetGrid);
+
 generateGrid( 16 , 16 );
 
 function paintPixel( target ){
@@ -21,7 +23,6 @@ function paintPixel( target ){
   } 
 
   target.classList.add('painted')
-  console.log('paint');
 }
 
 function generateGrid( numberOfRows, numberOfColumns ) {
@@ -56,8 +57,14 @@ function addPixelListeners() {
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', function (e) {
-      console.log(e.target.classList);
       paintPixel(e.target);
     })
+  })
+}
+
+function resetGrid() {
+  const painted = document.querySelectorAll('.painted');
+  painted.forEach( pixel => {
+    pixel.classList.remove('painted');
   })
 }

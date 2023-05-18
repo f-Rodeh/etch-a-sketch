@@ -19,6 +19,16 @@ body {
   padding: 52px;
 }
 
+.center {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 button {
   padding: 12px 48px;
   margin-right: 12px;

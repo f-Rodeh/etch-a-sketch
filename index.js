@@ -1,21 +1,19 @@
-// access the container div
-const container = document.querySelector('.grid-container');
-
-// create a div that represents a pixel
+const buttons = document.querySelector('.buttons');
+const body = document.querySelector('body');
+const newGridButton = document.querySelector('.new-grid-button');
+const clearButton = document.querySelector('.clear-button');
 const px = document.createElement('div');
 px.classList.add('pixel')
 
-generateGrid( 16 , 16 );
-
-// listen to mouse enter event on the pixels
-const pixels = document.querySelectorAll('.pixel');
-pixels.forEach(( pixel ) => {
-  pixel.addEventListener( 'mouseenter', function (e) {
-    console.log( e.target.classList );
-    paintPixel( e.target );
-  })
+newGridButton.addEventListener('click', () => {
+  let size = prompt('Define the size of the new grid', 16);
+  if ( size && size < 101 ) {
+    deleteGrid();
+    generateGrid( size, size )
+  }
 })
 
+generateGrid( 16 , 16 );
 
 function paintPixel( target ){
   if ( target.classList.contains('painted') ){
@@ -27,6 +25,9 @@ function paintPixel( target ){
 }
 
 function generateGrid( numberOfRows, numberOfColumns ) {
+  const container = document.createElement('div');
+  container.classList.add('grid-container');
+  body.insertBefore(container, buttons);
 
   // create a row div that contains numberOfColumns pixels
   const row = document.createElement('div');
@@ -43,4 +44,20 @@ function generateGrid( numberOfRows, numberOfColumns ) {
     const newRow = row.cloneNode(true)
     container.appendChild(newRow);
   }
+
+  addPixelListeners();
+}
+
+function deleteGrid() {
+  document.querySelector('.grid-container').remove();
+}
+
+function addPixelListeners() {
+  const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach((pixel) => {
+    pixel.addEventListener('mouseenter', function (e) {
+      console.log(e.target.classList);
+      paintPixel(e.target);
+    })
+  })
 }

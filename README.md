@@ -7,4 +7,5 @@ Todo
 - Add buttons animation
 - Add random color toggle
 - Add opacity slider
-- Add clear grid animation
+
+- Rename grid to canvas

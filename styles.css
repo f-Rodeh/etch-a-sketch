@@ -47,7 +47,7 @@ button:hover {
   transition: all 80ms;
 }
 
-.grid-container {
+.canvas {
   display: flex;
   flex-direction: column;
   width: 920px;

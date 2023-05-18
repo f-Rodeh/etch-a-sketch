@@ -1,10 +1,12 @@
-const buttons = document.querySelector('.buttons');
-const body = document.querySelector('.center');
+const buttons       = document.querySelector('.buttons');
+const center        = document.querySelector('.center');
 const newGridButton = document.querySelector('.new-grid-button');
-const clearButton = document.querySelector('.clear-button');
-const px = document.createElement('div');
-const label = document.querySelector('.label');
+const clearButton   = document.querySelector('.clear-button');
+const label         = document.querySelector('.label');
+const px            = document.createElement('div');
 px.classList.add('pixel')
+
+generateGrid( 16 , 32 );
 
 newGridButton.addEventListener('click', () => {
   let columns = prompt('Define the size of the new grid', 32);
@@ -17,42 +19,41 @@ newGridButton.addEventListener('click', () => {
 
 clearButton.addEventListener('click', resetGrid);
 
-generateGrid( 16 , 32 );
-
 function paintPixel( target ){
   if ( target.classList.contains('painted') ){
     return;
   } 
-
   target.classList.add('painted')
 }
 
 function generateGrid( numberOfRows, numberOfColumns ) {
+  const canvas = document.createElement('div');
+    canvas.classList.add('canvas');
+    center.insertBefore(canvas, buttons);
+
+  const row = document.createElement('div');
+    row.classList.add('row');
+
   label.textContent = 'Current grid: ' 
     + numberOfColumns + ' x ' + numberOfRows;
-  const container = document.createElement('div');
-  container.classList.add('grid-container');
-  body.insertBefore(container, buttons);
 
-  // create a row div that contains numberOfColumns pixels
-  const row = document.createElement('div');
-  row.classList.add('row')
+  // append pixels to the row
   for (let i = 0; i < numberOfColumns; i++) {
     const newPx = px.cloneNode(true)
     row.append(newPx);
   }
 
-  // append the row div inside the container numberOfRows times
+  // append the rows to the canvas
   for (let i = 0; i < numberOfRows; i++) {
     const newRow = row.cloneNode(true)
-    container.appendChild(newRow);
+    canvas.appendChild(newRow);
   }
 
   addPixelListeners();
 }
 
 function deleteGrid() {
-  document.querySelector('.grid-container').remove();
+  document.querySelector('.canvas').remove();
 }
 
 function addPixelListeners() {

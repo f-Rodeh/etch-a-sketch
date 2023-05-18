@@ -4,9 +4,16 @@ const container = document.querySelector('.grid-container');
 // create a div that represents a pixel
 const px = document.createElement('div');
 px.classList.add('pixel')
-//px.addEventListener('click', () => console.log('hey'))
 
 generateGrid( 16 , 16 );
+
+// listen to mouse enter event on the pixels
+const pixels = document.querySelectorAll('.pixel');
+pixels.forEach(( pixel ) => {
+  pixel.addEventListener('mouseenter', ()=> {
+    console.log('mouse enter')
+  })
+})
 
 function generateGrid( numberOfRows, numberOfColumns ) {
 

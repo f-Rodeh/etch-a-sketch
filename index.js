@@ -65,8 +65,22 @@ function addPixelListeners() {
 }
 
 function resetGrid() {
-  const painted = document.querySelectorAll('.painted');
-  painted.forEach( pixel => {
+  const rows = document.querySelectorAll('.row');
+  rows.forEach(row => clearRow(row));
+}
+
+function clearRow(row){
+  const pixels = row.childNodes
+  const totalTimeMs = 1400; 
+  const intervalTime = totalTimeMs / pixels.length;
+  
+  let i = 0;
+  let interval = setInterval(() => {
+    let pixel = pixels[i];
+    if (i === pixels.length-1){
+      clearInterval(interval)
+    }
     pixel.classList.remove('painted');
-  })
+    i++
+  }, intervalTime)
 }

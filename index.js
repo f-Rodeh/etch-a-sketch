@@ -3,6 +3,7 @@ const body = document.querySelector('body');
 const newGridButton = document.querySelector('.new-grid-button');
 const clearButton = document.querySelector('.clear-button');
 const px = document.createElement('div');
+const label = document.querySelector('.label');
 px.classList.add('pixel')
 
 newGridButton.addEventListener('click', () => {
@@ -26,6 +27,8 @@ function paintPixel( target ){
 }
 
 function generateGrid( numberOfRows, numberOfColumns ) {
+  label.textContent = 'Current grid: ' 
+    + numberOfColumns + ' x ' + numberOfColumns;
   const container = document.createElement('div');
   container.classList.add('grid-container');
   body.insertBefore(container, buttons);

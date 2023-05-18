@@ -10,10 +10,21 @@ generateGrid( 16 , 16 );
 // listen to mouse enter event on the pixels
 const pixels = document.querySelectorAll('.pixel');
 pixels.forEach(( pixel ) => {
-  pixel.addEventListener('mouseenter', ()=> {
-    console.log('mouse enter')
+  pixel.addEventListener( 'mouseenter', function (e) {
+    console.log( e.target.classList );
+    paintPixel( e.target );
   })
 })
+
+
+function paintPixel( target ){
+  if ( target.classList.contains('painted') ){
+    return;
+  } 
+
+  target.classList.add('painted')
+  console.log('paint');
+}
 
 function generateGrid( numberOfRows, numberOfColumns ) {
 

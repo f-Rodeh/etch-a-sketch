@@ -3,7 +3,7 @@
 :root {
   --main-bg-color: hsl(0, 62%, 39%);
   --main-txt-color: hsl(31, 90%, 88%);
-  --button-bg-color: hsl(10, 82%, 65%);
+  --button-bg-color: hsl(10, 92%, 75%);
   --button-txt-color: hsl(0, 50%, 20%);
 }
 
@@ -40,7 +40,7 @@ button:hover {
 .grid-container {
   display: flex;
   flex-direction: column;
-  width: 460px;
+  width: 920px;
   height: 460px;
   margin: 24px 0;
   border-radius: 24px;
@@ -65,5 +65,5 @@ button:hover {
 }
 
 .label {
-  font-size: 24px;
+  font-size: 22px;
 }

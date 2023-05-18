@@ -7,16 +7,17 @@ const label = document.querySelector('.label');
 px.classList.add('pixel')
 
 newGridButton.addEventListener('click', () => {
-  let size = prompt('Define the size of the new grid', 16);
-  if ( size && size < 101 ) {
+  let columns = prompt('Define the size of the new grid', 16);
+  let rows = Math.floor( columns / 2 );
+  if ( columns && columns < 101 ) {
     deleteGrid();
-    generateGrid( size, size )
+    generateGrid( rows, columns )
   }
 })
 
 clearButton.addEventListener('click', resetGrid);
 
-generateGrid( 16 , 16 );
+generateGrid( 16 , 32 );
 
 function paintPixel( target ){
   if ( target.classList.contains('painted') ){
@@ -28,7 +29,7 @@ function paintPixel( target ){
 
 function generateGrid( numberOfRows, numberOfColumns ) {
   label.textContent = 'Current grid: ' 
-    + numberOfColumns + ' x ' + numberOfColumns;
+    + numberOfColumns + ' x ' + numberOfRows;
   const container = document.createElement('div');
   container.classList.add('grid-container');
   body.insertBefore(container, buttons);

@@ -1,15 +1,16 @@
-/*import roboto font*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  --main-bg-color: hsl(5, 0%, 25%);
-  --main-txt-color: hsl(5, 0%, 90%);
-  --button-bg-color: hsl(53, 0%, 79%);
-  --button-txt-color: hsl(5, 0%, 10%);
+  --main-bg-color: hsl(0, 62%, 39%);
+  --main-txt-color: hsl(31, 90%, 88%);
+  --button-bg-color: hsl(10, 82%, 65%);
+  --button-txt-color: hsl(0, 50%, 20%);
 }
 
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 body {
@@ -20,14 +21,20 @@ body {
 
 button {
   padding: 12px 48px;
+  margin-right: 12px;
   border-style: solid;
   border-width: 2px;
   border-radius: 24px;
   border-color: var(--button-txt-color);
   background-color: var(--button-bg-color);
   color: var(--button-txt-color);
-  font-weight: bold;
   font-size: 16px;
+}
+
+button:hover {
+  background-color: var(--button-txt-color);
+  color: var(--button-bg-color);
+  transition: all 80ms;
 }
 
 .grid-container {
@@ -35,6 +42,9 @@ button {
   flex-direction: column;
   width: 460px;
   height: 460px;
+  margin: 24px 0;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .row {
@@ -44,12 +54,16 @@ button {
 }
 
 .pixel {
-  border: solid 1px #f6f6f6;
-  background-color: white;
+  border: solid 1px hsl(30, 30%, 93%);
+  background-color: hsl(30, 30%, 96%);
   flex: 1;
 }
 
 .painted {
-  border: solid 1px #111111;
-  background-color: black;
+  border: solid 1px hsl(210, 20%, 10%);
+  background-color: hsl(210, 30%, 5%);
+}
+
+.label {
+  font-size: 24px;
 }

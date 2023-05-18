@@ -31,21 +31,21 @@ function generateGrid( numberOfRows, numberOfColumns ) {
     canvas.classList.add('canvas');
     center.insertBefore(canvas, buttons);
 
-  const row = document.createElement('div');
-    row.classList.add('row');
+  const column = document.createElement('div');
+    column.classList.add('column');
 
   label.textContent = 'Current grid: ' 
     + numberOfColumns + ' x ' + numberOfRows;
 
-  // append pixels to the row
-  for (let i = 0; i < numberOfColumns; i++) {
+  // append pixels to the column
+  for (let i = 0; i < numberOfRows; i++) {
     const newPx = px.cloneNode(true)
-    row.append(newPx);
+    column.append(newPx);
   }
 
-  // append the rows to the canvas
-  for (let i = 0; i < numberOfRows; i++) {
-    const newRow = row.cloneNode(true)
+  // append the columns to the canvas
+  for (let i = 0; i < numberOfColumns; i++) {
+    const newRow = column.cloneNode(true)
     canvas.appendChild(newRow);
   }
 
@@ -66,22 +66,23 @@ function addPixelListeners() {
 }
 
 function resetGrid() {
-  const rows = document.querySelectorAll('.row');
-  rows.forEach(row => clearRow(row));
-}
-
-function clearRow(row){
-  const pixels = row.childNodes
+  const columns = document.querySelectorAll('.column');
   const totalTimeMs = 1400; 
-  const intervalTime = totalTimeMs / pixels.length;
+  const intervalTime = totalTimeMs / columns.length;
   
   let i = 0;
   let interval = setInterval(() => {
-    let pixel = pixels[i];
-    if (i === pixels.length-1){
+    let column = columns[i];
+    if (i === columns.length-1){
       clearInterval(interval)
     }
-    pixel.classList.remove('painted');
+    unpaint(column.childNodes)
     i++
   }, intervalTime)
+}
+
+function unpaint(list){
+  list.forEach(item => {
+    item.classList.remove('painted');
+  })
 }

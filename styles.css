@@ -30,6 +30,9 @@ body {
 }
 
 button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
   padding: 12px 48px;
   margin-right: 12px;
   border-style: solid;
@@ -38,7 +41,7 @@ button {
   border-color: var(--button-txt-color);
   background-color: var(--button-bg-color);
   color: var(--button-txt-color);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 button:hover {
@@ -51,7 +54,8 @@ button:hover {
   display: flex;
   width: 920px;
   height: 460px;
-  margin: 24px 0;
+  margin-top: 12px;
+  margin-bottom: 24px;
   border-radius: 24px;
   overflow: hidden;
 }
@@ -76,4 +80,9 @@ button:hover {
 
 .label {
   font-size: 22px;
+}
+
+button > svg {
+  fill: var(--button-txt-color);
+  height: 16px;
 }

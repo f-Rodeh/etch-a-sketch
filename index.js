@@ -17,7 +17,17 @@ newGridButton.addEventListener('click', () => {
   }
 })
 
-clearButton.addEventListener('click', resetGrid);
+clearButton.addEventListener('click', (e) => {
+  clearButton.classList.add('clicked')
+  resetGrid();
+});
+
+clearButton.addEventListener('transitionend', (e) => {
+  clearButton.classList.remove('clicked')
+});
+
+
+
 
 function paintPixel( target ){
   if ( target.classList.contains('painted') ){

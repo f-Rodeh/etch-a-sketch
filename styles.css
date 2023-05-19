@@ -22,6 +22,12 @@ body {
   padding: 52px;
 }
 
+.clicked {
+  transition-timing-function: ease-in-out;
+  transition: scale 50ms;
+  scale: 0.9;
+}
+
 .center {
   width: fit-content;
   margin: 0 auto;
@@ -48,8 +54,9 @@ button {
 }
 
 button:hover {
-  background-color: var(--button-txt-color);
-  color: var(--button-bg-color);
+  border-color: hsl(0, 50%, 20%);;
+  --button-txt-color: hsl(10, 92%, 75%);
+  --button-bg-color: hsl(0, 50%, 20%);
   transition: all 80ms;
 }
 

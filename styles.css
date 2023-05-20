@@ -106,7 +106,7 @@ label:hover{
   background-color: var(--main-bg-lighter);
 }
 
-input {
+.check-random-color {
   width: 20px;
   height: 20px;
 }

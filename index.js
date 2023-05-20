@@ -2,7 +2,7 @@ const buttons       = document.querySelector('.buttons');
 const center        = document.querySelector('.center');
 const newGridButton = document.querySelector('.new-grid-button');
 const clearButton   = document.querySelector('.clear-button');
-const label         = document.querySelector('.label');
+const gridInfo      = document.querySelector('.grid-info');
 const checkRandomColor = document.querySelector('.check-random-color');
 const px            = document.createElement('div');
 px.classList.add('pixel')
@@ -65,7 +65,7 @@ function generateGrid( numberOfRows, numberOfColumns ) {
   const column = document.createElement('div');
     column.classList.add('column');
 
-  label.textContent = 'Current grid: ' 
+  gridInfo.textContent = 'Current grid: ' 
     + numberOfColumns + ' x ' + numberOfRows;
 
   // append pixels to the column

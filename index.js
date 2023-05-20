@@ -9,7 +9,7 @@ px.classList.add('pixel')
 generateGrid( 16 , 32 );
 
 newGridButton.addEventListener('click', () => {
-  let columns = prompt('Define the size of the new grid', 32);
+  let columns = prompt('Specify the width of the new grid', 32);
   let rows = Math.floor( columns / 2 );
   if ( columns && columns < 101 ) {
     deleteGrid();
@@ -25,9 +25,6 @@ clearButton.addEventListener('click', (e) => {
 clearButton.addEventListener('transitionend', (e) => {
   clearButton.classList.remove('clicked')
 });
-
-
-
 
 function paintPixel( target ){
   if ( target.classList.contains('painted') ){

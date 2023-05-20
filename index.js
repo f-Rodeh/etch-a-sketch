@@ -65,7 +65,7 @@ function generateGrid( numberOfRows, numberOfColumns ) {
   const column = document.createElement('div');
     column.classList.add('column');
 
-  gridInfo.textContent = 'Current grid: ' 
+   gridInfo.textContent = 'Current grid: ' 
     + numberOfColumns + ' x ' + numberOfRows;
 
   // append pixels to the column

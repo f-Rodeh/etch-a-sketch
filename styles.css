@@ -2,7 +2,8 @@
 
 :root {
   --main-bg-color: hsl(0, 62%, 39%);
-  --main-txt-color: hsl(31, 90%, 88%);
+  --main-bg-lighter: hsl(0, 50%, 50%);
+  --main-txt-color: hsl(31, 70%, 90%);
   --button-bg-color: hsl(10, 92%, 75%);
   --button-txt-color: hsl(0, 50%, 20%);
 }
@@ -14,7 +15,7 @@
 }
 
 body {
-  height: 96vh;
+  height: aliceblue96vh;
   display: flex;
   align-items: center;
   background-color: var(--main-bg-color);
@@ -83,11 +84,29 @@ button:hover {
   flex: 1;
 }
 
-.label {
+.grid-info {
   font-size: 22px;
 }
 
 button > svg {
   fill: var(--button-txt-color);
   height: 16px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  padding: 0 24px;
+  border-radius: 12px;
+}
+
+label:hover{
+  background-color: var(--main-bg-lighter);
+}
+
+input {
+  width: 20px;
+  height: 20px;
 }

@@ -83,11 +83,6 @@ button:hover {
   flex: 1;
 }
 
-.painted {
-  border: solid 1px hsl(210, 20%, 10%);
-  background-color: hsl(210, 30%, 5%);
-}
-
 .label {
   font-size: 22px;
 }

@@ -3,6 +3,7 @@ const center        = document.querySelector('.center');
 const newGridButton = document.querySelector('.new-grid-button');
 const clearButton   = document.querySelector('.clear-button');
 const label         = document.querySelector('.label');
+const checkRandomColor = document.querySelector('.check-random-color');
 const px            = document.createElement('div');
 px.classList.add('pixel')
 
@@ -17,6 +18,19 @@ newGridButton.addEventListener('click', () => {
   }
 })
 
+function randomColor() {
+  let hue = Math.random() * 360;
+    hue = Math.floor(hue);
+  let saturation = Math.random() * 100;
+    saturation = Math.floor(saturation);
+  let light = Math.random() * 100;
+    light = Math.floor(light);
+  return {
+    px: `hsl(${hue},${saturation}%,${light}%)`,
+    border: `hsl(${hue},${saturation}%,${light -10}%)`
+  }
+}
+
 clearButton.addEventListener('click', (e) => {
   clearButton.classList.add('clicked')
   resetGrid();
@@ -26,11 +40,21 @@ clearButton.addEventListener('transitionend', (e) => {
   clearButton.classList.remove('clicked')
 });
 
-function paintPixel( target ){
-  if ( target.classList.contains('painted') ){
-    return;
-  } 
-  target.classList.add('painted')
+function paintPixel( target ){  
+  let borderColor = 'hsl(207, 22%, 10%)';
+  let pxColor = 'hsl(210, 30%, 5%)';
+
+  if(checkRandomColor.checked){
+    let color = randomColor();
+    pxColor = color.px;
+    borderColor = color.border;
+  } else {
+    borderColor = 'hsl(207, 22%, 10%)';
+    pxColor = 'hsl(210, 30%, 5%)';
+  }
+
+  target.style.borderColor = borderColor;
+  target.style.backgroundColor = pxColor;
 }
 
 function generateGrid( numberOfRows, numberOfColumns ) {
@@ -65,6 +89,7 @@ function deleteGrid() {
 
 function addPixelListeners() {
   const pixels = document.querySelectorAll('.pixel');
+
   pixels.forEach((pixel) => {
     pixel.addEventListener('mouseenter', function (e) {
       paintPixel(e.target);
@@ -90,6 +115,7 @@ function resetGrid() {
 
 function unpaint(list){
   list.forEach(item => {
-    item.classList.remove('painted');
+    item.style.backgroundColor = 'hsl(30, 30%, 96%)';
+    item.style.borderColor = 'hsl(30, 30%, 93%)';
   })
 }

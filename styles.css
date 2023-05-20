@@ -21,6 +21,7 @@ body {
   background-color: var(--main-bg-color);
   color: var(--main-txt-color);
   padding: 52px;
+  height: 96vh;
 }
 
 .clicked {
